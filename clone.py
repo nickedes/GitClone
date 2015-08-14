@@ -1,5 +1,5 @@
 from git_connect import connect
-import os
+import subprocess
 
 
 def getRepos():
@@ -15,5 +15,8 @@ if __name__ == '__main__':
     all_repos = getRepos()
     for repo in all_repos:
         # Clone the repo.
-        os.system('git clone ' + repo.clone_url)
-    print("Cloned all your Repos.")
+        if not subprocess.check_call(['git', 'clone', repo.clone_url]):
+            # Returns 0 when ran successfully and 1 otherwise.
+            pass
+        else:
+            print("Clone failed! Try again.")
