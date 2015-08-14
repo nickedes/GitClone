@@ -16,3 +16,4 @@ if __name__ == '__main__':
     for repo in all_repos:
         # Clone the repo.
         os.system('git clone ' + repo.clone_url)
+    print("Cloned all your Repos.")
